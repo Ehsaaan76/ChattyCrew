@@ -5,7 +5,7 @@ export const generateToken = (userId, res) => {
     expiresIn: "7d",
   });
 
-  res.cookie("jwt-ChattyCrew", token, {
+  res.cookie("jwt", token, {
     httpOnly: true, 
     secure: process.env.NODE_ENV !== "development", 
     sameSite: "Strict",

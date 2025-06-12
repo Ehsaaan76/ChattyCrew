@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuthStore } from "./store/useAuthStore";
+
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingsPage from "./pages/SettingsPage";
+
 import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -15,7 +19,7 @@ const App = () => {
     checkAuth();
   }, [checkAuth]);
 
-  console.log(authUser);
+  console.log({ authUser });
 
   if (isCheckingAuth && !authUser)
     return (
